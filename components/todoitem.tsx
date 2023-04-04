@@ -1,20 +1,16 @@
 import React from "react";
+import styles from '../styles/ToDoItem.module.css'
 
-interface toDoProps {
+interface ToDoProps {
   text: string;
-  isComplete: boolean;
-  handleDelete: () => void;
+  onDelete: () => void;
 }
 
-export default function ToDoItem({
-  text,
-  isComplete,
-  handleDelete,
-}: toDoProps) {
+export const ToDoItem: React.FC<ToDoProps> = ({text, onDelete}) => {
   return (
-    <div>
-      <h2 id="textContent">{text}</h2>
-      <button onClick={handleDelete}>Delete</button>
+    <div className={styles.toDoContainer}>
+      <button className={styles.toDoButton} onClick={onDelete}>X</button>
+      <h3 className={styles.toDoText}>{text}</h3>
     </div>
-  );
+  )
 }

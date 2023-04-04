@@ -1,7 +1,14 @@
 .mainContainer {
-  background-color: yellow;
+  color: white;
+  text-align: center;
 }
 
-.tester {
-  font-size: 300px;
+.inputContainer {
+  width: 180px;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
