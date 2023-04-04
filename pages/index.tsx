@@ -33,7 +33,7 @@ const App: React.FC = () => {
             <ToDoItem key={index} text={todo.text} onDelete={() => handleDelete(index)} />
           )
         }) : (
-          <p>No todos yet!</p>
+          <div></div>
         )}
       </div>
       <div className={styles.inputContainer}>

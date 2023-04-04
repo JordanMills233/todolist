@@ -14,5 +14,10 @@
 }
 
 .toDoButton {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family:Arial, Helvetica, sans-serif;
+    color: red;
     margin-left: 94%;
 }
