@@ -12,8 +12,11 @@ const App: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setTodos([...todos, {text: inputValue}])
-    setInputValue("")
+    if (!(inputValue == "")) {
+      setTodos([...todos, {text: inputValue}])
+      setInputValue("")
+    }
+    
   }
 
   const handleDelete = (index: number) => {
