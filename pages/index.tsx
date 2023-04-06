@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!(inputValue == "")) {
+    if (!(inputValue.trim() == "")) {
       setTodos([...todos, { text: inputValue }]);
       setInputValue("");
     }
@@ -47,6 +47,7 @@ const App: React.FC = () => {
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit}>
           <input
+            className={styles.input}
             type="text"
             value={inputValue}
             onChange={handleChange}
