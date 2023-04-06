@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 import { ToDoItem } from "@/components/todoitem";
-import styles from '../styles/App.module.css'
+import styles from "../styles/App.module.css";
 
 const App: React.FC = () => {
-  const [todos, setTodos] = useState<{text: string}[]>([])
-  const [inputValue, setInputValue] = useState("")
+  const [todos, setTodos] = useState<{ text: string }[]>([]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value)
-  }
+    setInputValue(e.target.value);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!(inputValue == "")) {
-      setTodos([...todos, {text: inputValue}])
-      setInputValue("")
+      setTodos([...todos, { text: inputValue }]);
+      setInputValue("");
     }
-    
-  }
+  };
 
   const handleDelete = (index: number) => {
-    const newTodos = [...todos]
-    newTodos.splice(index, 1)
-    setTodos(newTodos)
-  }
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
   return (
     <div>
@@ -31,17 +30,28 @@ const App: React.FC = () => {
         <h1 className={styles.tester}>TODOS</h1>
       </div>
       <div>
-        {todos.length >= 1 ? todos.map((todo, index) => {
-          return (
-            <ToDoItem key={index} text={todo.text} onDelete={() => handleDelete(index)} />
-          )
-        }) : (
+        {todos.length >= 1 ? (
+          todos.map((todo, index) => {
+            return (
+              <ToDoItem
+                key={index}
+                text={todo.text}
+                onDelete={() => handleDelete(index)}
+              />
+            );
+          })
+        ) : (
           <div></div>
         )}
       </div>
       <div className={styles.inputContainer}>
         <form onSubmit={handleSubmit}>
-          <input type="text" value={inputValue} onChange={handleChange} height={20}/>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={handleChange}
+            placeholder="ADD TODO"
+          />
         </form>
       </div>
     </div>
